@@ -1,6 +1,6 @@
 # learn.30hours.dev
 
-A capture the flag for digital signal processing. Play at [https://learn.30hours.dev](https://learn.30hours.dev).
+A [capture the flag](https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) for digital signal processing. Play at [https://learn.30hours.dev](https://learn.30hours.dev).
 
 ![learn.30hours.dev example display](./example.png "example")
 
