@@ -16,7 +16,7 @@ sudo run.sh
 ## Run a Python script
 
 ```
-python challenge/<challenge_folder>/generate.py
+python challenge/<challenge_folder>/<folder>/main.py
 ```
 
 
