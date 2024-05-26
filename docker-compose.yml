@@ -22,7 +22,7 @@ services:
       - ACCESS_LOG=-
       - ERROR_LOG=-
       - REVERSE_PROXY=true
-      - VIRTUAL_HOST=learn.30hours.dev,www.learn.30hours.dev
+      - VIRTUAL_HOST=learn.30hours.dev
     volumes:
       - ./data/CTFd/logs:/var/log/CTFd
       - ./data/CTFd/uploads:/var/uploads
@@ -45,7 +45,6 @@ services:
       - MARIADB_AUTO_UPGRADE=1
     volumes:
       - ./data/mysql:/var/lib/mysql
-    # This command is required to set important mariadb defaults
     command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --wait_timeout=28800, --log-warnings=0]
     networks:
       - internal
