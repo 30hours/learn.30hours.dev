@@ -1,0 +1,4 @@
+file: iq_data.bin
+nChannels: 1
+fs: 200000
+fc: baseband

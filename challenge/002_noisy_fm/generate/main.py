@@ -143,6 +143,8 @@ def plot_time(x, fs, filename):
     plt.savefig(filename)
     plt.close()
 
+np.random.seed(0)
+
 # load samples and add noise
 samples, fs = get_wav_samples("audio.mp3")
 noisy_samples = add_noise(samples, fs, 1000000, 5000)
@@ -160,7 +162,7 @@ interleaved_data = np.column_stack((iq_data.real, iq_data.imag)).ravel()
 interleaved_data.tofile('/app/challenge/002_noisy_fm/data/iq_data.bin')
 
 # write IQ header
-header = {'file': 'iq_data.bin', 'fs': fs_iq, 'fc': 'baseband'}
+header = {'file': 'iq_data.bin', 'nChannels': 1, 'fs': fs_iq, 'fc': 'baseband'}
 header_file = '/app/challenge/002_noisy_fm/data/iq_data_header.yml'
 with open(header_file, 'w') as yaml_file:
     yaml.dump(header, yaml_file, default_flow_style=False, sort_keys=False)
