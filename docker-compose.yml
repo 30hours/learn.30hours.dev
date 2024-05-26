@@ -1,0 +1,62 @@
+version: '3'
+
+networks:
+    nginx-web:
+      external: true
+    internal:
+      internal: true
+
+services:
+  ctfd:
+    image: ctfd/ctfd:3.7.0
+    user: root
+    restart: always
+    ports:
+      - "3012:8000"
+    environment:
+      - UPLOAD_FOLDER=/var/uploads
+      - DATABASE_URL=mysql+pymysql://ctfd:ctfd@db/ctfd
+      - REDIS_URL=redis://cache:6379
+      - WORKERS=1
+      - LOG_FOLDER=/var/log/CTFd
+      - ACCESS_LOG=-
+      - ERROR_LOG=-
+      - REVERSE_PROXY=true
+      - VIRTUAL_HOST=learn.30hours.dev,www.learn.30hours.dev
+    volumes:
+      - ./data/CTFd/logs:/var/log/CTFd
+      - ./data/CTFd/uploads:/var/uploads
+      - ./CTFd:/opt/CTFd:ro
+    depends_on:
+      - db
+    networks:
+      - nginx-web
+      - internal
+    container_name: 3012-learn
+
+  db:
+    image: mariadb:10.11
+    restart: always
+    environment:
+      - MARIADB_ROOT_PASSWORD=ctfd
+      - MARIADB_USER=ctfd
+      - MARIADB_PASSWORD=ctfd
+      - MARIADB_DATABASE=ctfd
+      - MARIADB_AUTO_UPGRADE=1
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    # This command is required to set important mariadb defaults
+    command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --wait_timeout=28800, --log-warnings=0]
+    networks:
+      - internal
+    container_name: 3012-learn-db
+
+  cache:
+    image: redis:4
+    restart: always
+    volumes:
+    - ./data/redis:/data
+    networks:
+      - internal
+    container_name: 3012-learn-cache
+
