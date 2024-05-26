@@ -1,4 +1,4 @@
-A Python environment with all required libraries to generate/solve all challenges.
+A Python environment with all required libraries to generate/solve each challenge.
 
 ## Docker environment setup
 
