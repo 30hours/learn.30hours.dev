@@ -2,6 +2,8 @@
 
 A capture the flag for digital signal processing. Play at [https://learn.30hours.dev](https://learn.30hours.dev).
 
+![learn.30hours.dev example display](./example.png "example")
+
 ## Example
 
 A beginner challenge is the "Noisy FM". An IQ recording of a noisy FM signal is provided. The user must demodulate the FM signal, locate the noise in frequency, filter off the noise, then listen to the audio to hear the flag. The flag e.g. `flag{this_is_the_flag}` is then typed in to complete the challenge.
