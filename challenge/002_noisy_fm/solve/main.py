@@ -135,7 +135,7 @@ def low_pass_filter(x, fs, fc, n):
 
     return y
 
-iq_data = load_iq_data("/app/challenge/002_noisy_fm/data/iq_data.bin")
+iq_data = load_iq_data("/app/challenge/002_noisy_fm/data/iq_data.sigmf-data")
 
 # demodulate FM
 fs_iq = 200000

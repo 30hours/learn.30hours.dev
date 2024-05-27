@@ -7,7 +7,7 @@ value: 10
 
 An FM radio signal is provided. Demodulate it and listen to the audio. It sounds a bit noisy though? Remove the noise to listen to the flag. Read the header file to get the IQ data sampling frequency. Plot the signal in the frequency domain to see the noise after demodulating.
 
-The IQ data is interleaved float64 bit I and Q samples. An example of reading the files in Python is provided:
+The IQ data is in the SigMF format, which is interleaved float64 bit I and Q samples. Read the SigMF docs or use the following Python example:
 
 ```
 import numpy as np

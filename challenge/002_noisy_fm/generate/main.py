@@ -10,6 +10,8 @@ from scipy.signal import resample
 from scipy.fft import fft, fftfreq
 import matplotlib.pyplot as plt
 import yaml
+from sigmf import SigMFFile
+from sigmf.utils import get_data_type_str
 
 def get_wav_samples(mp3_file_path):
 
@@ -159,13 +161,24 @@ iq_data = fm_modulate(noisy_samples_resample, fs_iq, 75000)
 
 # save IQ to file
 interleaved_data = np.column_stack((iq_data.real, iq_data.imag)).ravel()
-interleaved_data.tofile('/app/challenge/002_noisy_fm/data/iq_data.bin')
+data_file = '/app/challenge/002_noisy_fm/data/iq_data.sigmf-data'
+interleaved_data.tofile(data_file)
 
 # write IQ header
-header = {'file': 'iq_data.bin', 'nChannels': 1, 'fs': fs_iq, 'fc': 'baseband'}
-header_file = '/app/challenge/002_noisy_fm/data/iq_data_header.yml'
-with open(header_file, 'w') as yaml_file:
-    yaml.dump(header, yaml_file, default_flow_style=False, sort_keys=False)
+header_file = '/app/challenge/002_noisy_fm/data/iq_data.sigmf-meta'
+header = SigMFFile(
+    data_file=data_file,
+    global_info = {
+        SigMFFile.DATATYPE_KEY: get_data_type_str(interleaved_data),
+        SigMFFile.SAMPLE_RATE_KEY: fs_iq,
+        SigMFFile.NUM_CHANNELS_KEY: 1,
+        SigMFFile.AUTHOR_KEY: 'nathan@30hours.dev',
+        SigMFFile.DESCRIPTION_KEY: 'An FM modulated signal with noise.',
+        SigMFFile.LICENSE_KEY: 'MIT',
+        SigMFFile.VERSION_KEY: '1.2.1',
+    }
+)
+header.tofile(header_file)
 
 # save the noisy samples to a WAV file
 write("noisy_audio.wav", fs, noisy_samples)
