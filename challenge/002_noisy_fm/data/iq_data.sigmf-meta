@@ -9,6 +9,11 @@
         "core:sha512": "83f5ff00a1fd7ed5b598553542711a4ea4b7a796fc07600b0d096b94538c321bef8af881285697bbd77b5d5ce1a3a2d804f073f2c602c5189cbd0a93974ca7ad",
         "core:version": "1.2.1"
     },
-    "captures": [],
+    "captures": [
+        {
+            "core:frequency": 0,
+            "core:sample_start": 0
+        }
+    ],
     "annotations": []
 }

@@ -178,6 +178,9 @@ header = SigMFFile(
         SigMFFile.VERSION_KEY: '1.2.1',
     }
 )
+header.add_capture(0, metadata={
+    SigMFFile.FREQUENCY_KEY: 0,
+})
 header.tofile(header_file)
 
 # save the noisy samples to a WAV file
