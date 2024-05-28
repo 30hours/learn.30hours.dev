@@ -20,3 +20,5 @@ def load_iq_data(iq_file_path):
     return iq_data
 ```
 
+Enter the flag as `flag{the_flag}`.
+
