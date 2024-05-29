@@ -1,0 +1,19 @@
+{
+    "global": {
+        "core:author": "nathan@30hours.dev",
+        "core:datatype": "rf64_le",
+        "core:description": "A radar transmit and receive waveform with 1 target.",
+        "core:license": "MIT",
+        "core:num_channels": 2,
+        "core:sample_rate": 1000000,
+        "core:sha512": "2dfe6875eff3d795da828090e376fe8ee61aa212b55d741e6ee1a3185d37f710a8fa292bad29f92796c8938b2aaee2cca65fa80716c3196c380d34984eddf0e2",
+        "core:version": "1.0.0"
+    },
+    "captures": [
+        {
+            "core:frequency": 300000000,
+            "core:sample_start": 0
+        }
+    ],
+    "annotations": []
+}
