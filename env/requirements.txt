@@ -6,3 +6,6 @@ pydub==0.25.1
 matplotlib==3.9.0
 pyyaml==6.0.1
 sigmf==1.2.1
+click==8.1.7
+imageio==2.34.1
+pillow==10.3.0
