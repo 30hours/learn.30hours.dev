@@ -1,0 +1,19 @@
+{
+    "global": {
+        "core:author": "nathan@30hours.dev",
+        "core:datatype": "cf32_le",
+        "core:description": "A signal with spectrum painting.",
+        "core:license": "MIT",
+        "core:num_channels": 1,
+        "core:sample_rate": 100000,
+        "core:sha512": "d36b660a41c0ec3354de4323f38cdf9780e0ffb6c1128e628c891482b9f48b5c4f892f03e1a889997110d0b9e7f00d4df1fa426814c151d9fa5f52baae33754a",
+        "core:version": "1.2.0"
+    },
+    "captures": [
+        {
+            "core:frequency": 0,
+            "core:sample_start": 0
+        }
+    ],
+    "annotations": []
+}
